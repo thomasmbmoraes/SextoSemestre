@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Titulo</title>
+        <title>Aula 01 Tags HTML</title>
     </head>
     <body>
         <h1>Titulo Nivel 1</h1>
@@ -125,5 +125,64 @@
                 </ul>
             </li>
         </ul>
+
+        <br/><br/>
+        <h3>Tabela</h3>
+        <!-- A tag <table> define o início e fim de uma tabela. -->
+        <!-- Se adidionar border, a tabela terá bordas visíveis -->
+        <table border="1">
+            <!-- Conteúdo da tabela -->
+            <!-- A tag <tr> define uma linha dentro da tabela. Cada linha pode conter cabeçalhos e células. -->
+            <!-- A tag <th> define uma célula de cabeçalho dentro da tabela. A tag <td> define uma célula de dados dentro da tabela. Cada célula contém o conteúdo da tabela, como texto ou números. -->
+            <tr>
+                <th>Coluna A</th>
+                <th>Coluna B</th>
+            </tr>
+            <tr>
+                <td>Item 1</td>
+                <td>Item 2</td>
+            </tr>
+            <tr>
+                <td>Item 3</td>
+                <td>Item 4</td>
+            </tr>
+            <!-- tag de legenda -->
+            <caption>Legenda da Tabela</caption>
+        </table>
+
+        <br/><br/>
+        <h4>Tabela com Mesclagem de Células</h4>
+        <!-- Mesclagem de Células da Linha-->
+        <table border="1">
+            <tr>
+                <th>Coluna A</th>
+                <th>Coluna B</th>
+            </tr>
+            <tr>
+                <td colspan="2">Item 1</td>
+            </tr>
+            <tr>
+                <td>Item 2</td>
+                <td>Item 3</td>
+            </tr>
+        </table>
+
+        <br/><br/>
+        <h4>Tabela com Mesclagem de Células da Coluna</h4>
+        <table border="1">
+            <tr>
+                <th>Coluna A</th>
+                <th>Coluna B</th>
+            </tr>
+            <tr>
+                <td rowspan="2">Item 1</td>
+                <td>Item 2</td>
+            </tr>
+            <tr>
+                <td>Item 3</td>
+            </tr>
+        </table>
+
+        
     </body>
 </html>
