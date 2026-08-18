@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Formulario HTML</title>
+    </head>
+
+    <body>
+        <h1>Formulario</h1>
+
+        <form action="exemplo04.html" method="post">
+            <!-- method = get envia os dados do formulário na URL, method = post envia os dados do formulário no corpo da requisição -->
+
+            <label for="txtNome">Nome</label> <br/>
+            <input id="txtNome" name="nome" type="text" /><br/>
+            <br/>
+            <label for="txtEmail">Email</label><br/>
+            <input id="txtEmail" name="email" type="email" /><br/>     
+            <br>    
+            
+            <label for="txtCurso">Curso</label><br/>
+            <!-- quando se usa radio e a intenção é que apenas um seja selecionado, todos devem ter o mesmo nome -->
+            <input id="txtCurso" name="curso" type="radio" value="1" />
+            Engenharia da Computação <br/>
+            <input id="txtCurso" name="curso" type="radio" value="2" />
+            Farmácia <br/>
+            <input id="txtCurso" name="curso" type="radio" value="3" />
+            Medicina <br/>
+            <input id="txtCurso" name="curso" type="radio" value="4" />
+            Nutrição <br/>
+            <br>    
+            
+            <label for="txtCurso">Curso</label><br/>
+            <input id="txtCurso" name="EngComp" type="checkbox" value="1" />
+            Engenharia da Computação <br/>
+            <input id="txtCurso" name="Farmacia" type="checkbox" value="2" />
+            Farmácia <br/>
+            <input id="txtCurso" name="Medicina" type="checkbox" value="3" />
+            Medicina <br/>
+            <input id="txtCurso" name="Nutricao" type="checkbox" value="4" />
+            Nutrição <br/>
+
+            <br/><br/>
+            <label>Senha</label><br />
+            <input type="password" name="senha" /> <br/>
+
+            <br/><br/>
+            <label>Número</label><br />
+            <input type="number" name="numero" min="0" max="100" /> <br/>
+
+            <br/><br/>
+            <label>Data</label><br />
+            <input type="date" name="data" /> <br/>
+
+            <br/><br/>
+            <label>Hora</label><br />
+            <input type="time" name="hora" /> <br/>
+
+            <br/><br/>
+            <label>Intervalo (range)</label><br />
+            <input type="range" name="Intervalo" min="1" max="10" /> <br/>
+
+            <br/><br/>
+            <label>Cor</label><br />
+            <input type="color" name="cor" /> <br/>
+
+            <br /><br />
+            <label>Selecione o carro</label><br />
+            <select name="carros">
+                <option value="volvo">Volvo</option>
+                <option value="gm">GM</option>
+                <option value="audi">Audi</option>
+                <option value="byd">Byd</option>
+            </select>
+
+            <br /><br />
+            <label>Selecione o navegador</label><br />
+            <input list="navegadores" name="navegador" />
+            <datalist id="navegadores">
+                <option value="Edge">
+                <option value="Firefox">
+                <option value="Chrome">
+                <option value="Safari">
+                <option value="Opera">
+            </datalist>
+
+            <br/><br />
+            <input type="submit" value="enviar" />
+            <input type="reset" value="limpar" />
+        </form>
+</html>

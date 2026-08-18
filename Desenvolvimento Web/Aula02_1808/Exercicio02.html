@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Exercicio 02</title>
+    </head>
+    <body>
+        <form>
+            <label for="txtNome">Nome Completo:</label><br>
+            <input type="text" id="txtNome" name="txtNome" required><br><br>
+
+            <label for="txtEmailInstitucional">E-mail:</label><br>
+            <input type="email" id="txtEmailInstitucional" name="txtEmailInstitucional" required><br><br>
+
+            <label for="txtCurso">Curso:</label><br>
+            <input type="text" id="txtCurso" name="txtCurso" required><br><br>
+
+            <label for="txtPeriodo">Periodo Atual do Curso:</label><br>
+            <select id="txtPeriodo" name="txtPeriodo" required>
+                <option value="">Selecione</option>
+                <option value="1">1º</option>
+                <option value="2">2º</option>
+                <option value="3">3º</option>
+                <option value="4">4º</option>
+                <option value="5">5º</option>
+                <option value="6">6º</option>
+                <option value="7">7º</option>
+                <option value="8">8º</option>
+                <option value="9">9º</option>
+                <option value="10">10º</option>
+            </select><br><br>
+
+            <label>Modalidade de Participação:</label><br>
+            <input type="radio" id="modalidadePresencial" name="txtModalidade" value="Presencial" required>
+            <label for="modalidadePresencial">Presencial</label><br>
+            <input type="radio" id="modalidadeRemoto" name="txtModalidade" value="Remoto">
+            <label for="modalidadeRemoto">Remoto</label><br><br>
+
+            <label for="txtAreasInteresse">Áreas de Interesse:</label><br>
+            <input type="checkbox" id="area1" name="txtAreasInteresse" value="Inteligencia Artificial">
+            <label for="area1">Inteligência Artificial</label><br>
+            <input type="checkbox" id="area2" name="txtAreasInteresse" value="Desenvolvimento Web">
+            <label for="area2">Desenvolvimento Web</label><br>
+            <input type="checkbox" id="area3" name="txtAreasInteresse" value="Internet das Coisas">
+            <label for="area3">Internet das Coisas</label><br>
+            <input type="checkbox" id="area4" name="txtAreasInteresse" value="Segurança da Informação">
+            <label for="area4">Segurança da Informação</label><br>
+            <input type="checkbox" id="area5" name="txtAreasInteresse" value="Computação em Nuvem">
+            <label for="area5">Computação em Nuvem</label><br>
+
+            <br>
+            <label for="txtObservação">Campo pra Observação:</label><br>
+            <textarea id="txtObservação" name="txtObservação" rows="4" cols="50"></textarea><br><br>
+
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Limpar">
+
+        </form>
+    </body>
+</html>

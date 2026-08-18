@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Abertura Chamado</title>
+</head>
+
+<body>
+    <h1>Abertura Chamado</h1>
+    <form>
+
+        <h2>Solicitante</h2>
+        <label for="nome">Nome completo </label><br />
+        <input id="nome" name="nome" type="text" size="40" required /> <br /><br />
+
+        <label for="email">E-mail </label><br />
+        <input id="email" name="email" type="email" size="40" required /> <br /><br />
+
+        <label for="departamento">Departamento: </label>
+        <select name="departamento">
+            <option value="exatas">Exatas</option>
+            <option value="humanas">Humanas</option>
+            <option value="biologicas">Biológicas</option>
+        </select>
+
+
+        <h2>Detalhes</h2>
+        <label for="patrimonio">Número do Patrimônio: </label>
+        <input id="patrimonio" name="patrimonio" type="number" min="1000" max="9999" required /> <br /><br />
+
+        <label for="patrimonio">Categoria: </label>
+        <input id="categoria" name="categoria" list="categorias">
+        <datalist id="categorias">
+            <option value="Hardware">
+            <option value="Software">
+            <option value="Rede">
+            <option value="Impressora">
+        </datalist>
+        <br /><br />
+
+        <label for="prioridade">Prioridade: </label>
+        <select name="prioridade">
+            <option value="baixa">Baixa</option>
+            <option value="media">Média</option>
+            <option value="alta">Alta</option>
+            <option value="critica">Crítica</option>
+        </select>
+        <br /><br />
+
+        <label for="data">Data da ocorrência: </label>
+        <input id="data" name="data" type="date" />
+        <br /><br />
+
+        <label for="descricao">Descrição: </label> <br />
+        <textarea minlength="50" rows="6" cols="40"></textarea>
+        <br /><br />
+
+        <label for="anexo">Anexo de evidências </label> <br />
+        <input id="anexo" name="anexo" type="file" accept="image/*,application/pdf" />
+        <br /><br /><br />
+        
+        <input type="submit" value="enviar" />
+        <input type="reset" value="limpar" />
+
+    </form>
+</body>
+
+</html>
