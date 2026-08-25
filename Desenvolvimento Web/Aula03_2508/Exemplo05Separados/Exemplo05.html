@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>CSS — Aula 03</title>
+
+    <!--
+    =====================================================================
+    CSS EXTERNO (arquivo .css separado)
+    =====================================================================
+    - Armazenado em arquivo separado (.css)
+    - Referenciado via <link> no <head>
+    - VANTAGEM: reutilizável em várias páginas, cacheável pelo navegador
+    - DESVANTAGEM: requer arquivo separado, pode não carregar se offline
+    =====================================================================
+    -->
+    <link rel="stylesheet" href="exemplo5.css" />
+
+    <!--
+    =====================================================================
+    CSS INTERNO (tag <style> no <head>)
+    =====================================================================
+    - Definido dentro da tag <style> no <head> do documento
+    - Afeta todos os elementos da PÁGINA ATUAL que baterem com o seletor
+    - VANTAGEM: bom para páginas simples ou estilos exclusivos de 1 página
+    - DESVANTAGEM: não reutilizável entre páginas
+    =====================================================================
+    -->
+    <style>
+
+        /* ---------------------------------------------------------------
+           SELETOR DE ELEMENTO
+           Sintaxe: nomeDaTag { propriedade: valor; }
+           Seleciona TODAS as ocorrências daquela tag no documento.
+           Aqui, todos os <p> ficam vermelhos — exceto o que tem inline
+           CSS, que tem prioridade maior (ver primeiro <p> no <body>).
+        --------------------------------------------------------------- */
+        p {
+            color: red;
+        }
+
+        /* ---------------------------------------------------------------
+           SELETOR DE CLASSE
+           Sintaxe: .nomeDaClasse { propriedade: valor; }
+           Seleciona qualquer elemento que tenha class="nomeDaClasse".
+           Classes podem ser aplicadas a múltiplos elementos diferentes.
+        --------------------------------------------------------------- */
+        .titulo {
+            font-family: Arial, sans-serif;
+            font-size: 44px;
+        }
+
+        /* ---------------------------------------------------------------
+           SELETOR DE ATRIBUTO
+           Sintaxe: [atributo="valor"] { propriedade: valor; }
+           Seleciona elementos com base em atributos específicos.
+           Aqui: apenas inputs com type="text" ganham fundo amarelo claro.
+           O input type="submit" NÃO é afetado.
+
+           Variações:
+             [attr]           → possui o atributo (qualquer valor)
+             [attr="val"]     → valor exatamente igual
+             [attr^="val"]    → começa com val
+             [attr$="val"]    → termina com val
+             [attr*="val"]    → contém val em qualquer posição
+        --------------------------------------------------------------- */
+        [type="text"] {
+            background-color: lightyellow;
+        }
+
+        /* ---------------------------------------------------------------
+           SELETOR DE ID
+           Sintaxe: #nomeDoId { propriedade: valor; }
+           Seleciona UM único elemento com id="nomeDoId".
+           IDs devem ser únicos por página.
+        --------------------------------------------------------------- */
+        #rodape {
+            font-size: 12px;
+            color: gray;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* ---------------------------------------------------------------
+           COMBINADORES
+           Permitem selecionar elementos com base na relação entre eles.
+
+           A B    → Descendente: todo B dentro de A (qualquer nível)
+           A > B  → Filho direto: B filho imediato de A
+           A + B  → Adjacente: B imediatamente após A (irmão)
+           A ~ B  → Irmão geral: todos os B irmãos após A
+        --------------------------------------------------------------- */
+
+        /* Descendente: todo <label> dentro do <form> */
+        form label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Filho direto: <input> filho direto do <form> */
+        form > input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        /* ---------------------------------------------------------------
+           PSEUDO-CLASSES
+           Aplicam estilos com base no ESTADO do elemento.
+
+           :hover      → quando o cursor está sobre o elemento
+           :focus      → quando o elemento recebe foco (ex: campo ativo)
+           :first-child → primeiro filho do pai
+           :last-child  → último filho do pai
+           :nth-child(n) → filho na posição n
+        --------------------------------------------------------------- */
+
+        /* :hover — muda aparência do botão ao passar o mouse */
+        form > input[type="submit"]:hover {
+            background-color: #388E3C;
+        }
+
+        /* :focus — destaca o campo de texto quando ele está ativo */
+        input[type="text"]:focus {
+            outline: 2px solid #4CAF50;
+            background-color: #f0fff0;
+        }
+
+        /* :first-child — estiliza o primeiro <p> filho do <body>
+           (o que não tem inline style, para não conflitar) */
+        /* p:first-child { font-weight: bold; } */
+
+        /* :nth-child — estiliza o 3º parágrafo */
+        p:nth-child(3) {
+            font-style: italic;
+            border-left: 3px solid red;
+            padding-left: 10px;
+        }
+
+        /* ---------------------------------------------------------------
+           PSEUDO-ELEMENTOS
+           Estilizam PARTES de um elemento.
+
+           ::before      → insere conteúdo antes do conteúdo do elemento
+           ::after       → insere conteúdo depois do conteúdo do elemento
+           ::first-letter → estiliza a primeira letra
+           ::first-line   → estiliza a primeira linha de texto
+        --------------------------------------------------------------- */
+
+        /* ::first-letter — primeira letra do parágrafo maior */
+        p::first-letter {
+            font-size: 1.8em;
+            font-weight: bold;
+            float: left;
+            margin-right: 4px;
+            line-height: 1;
+        }
+
+        /* ::before — adiciona um ícone antes do título do formulário */
+        h2::before {
+            content: "📋 ";
+        }
+
+        /* ---------------------------------------------------------------
+           BOX MODEL
+           Todo elemento HTML é uma caixa com 4 camadas:
+             content  → conteúdo real
+             padding  → espaço entre o conteúdo e a borda
+             border   → a borda em si
+             margin   → espaço fora da borda
+
+           box-sizing: border-box → largura/altura incluem padding e border
+           box-sizing: content-box → padrão; padding e border são somados
+        --------------------------------------------------------------- */
+        * {
+            box-sizing: border-box; /* boa prática: aplicar globalmente */
+        }
+
+        .caixa-exemplo {
+            width: 300px;
+            padding: 20px;                  /* espaço interno */
+            border: 2px solid #4CAF50;      /* borda visível */
+            margin: 20px auto;              /* centraliza o bloco */
+            background-color: #e8f5e9;
+        }
+
+        /* ---------------------------------------------------------------
+           DISPLAY
+           Controla como o elemento é exibido no fluxo do documento.
+
+           block        → ocupa toda a largura, começa em nova linha
+           inline       → na mesma linha, sem quebra
+           inline-block → inline mas aceita width/height
+           none         → remove o elemento do fluxo (invisível, sem espaço)
+        --------------------------------------------------------------- */
+        .badge {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 14px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        /* ---------------------------------------------------------------
+           FLEXBOX (display: flex)
+           Layout unidimensional — distribui itens em linha ou coluna.
+
+           Propriedades do contêiner:
+             flex-direction    → row | column | row-reverse | column-reverse
+             justify-content   → alinha no eixo principal
+             align-items       → alinha no eixo cruzado
+
+           Pratique em: flexboxfroggy.com
+        --------------------------------------------------------------- */
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between; /* distribui espaço entre os itens */
+            align-items: center;
+            gap: 10px;
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+
+        .flex-item {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-align: center;
+            flex: 1; /* cada item ocupa espaço igual */
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ============================================================
+         CSS INLINE (atributo style no próprio elemento)
+         - Prioridade MÁXIMA: sobrepõe interno e externo
+         - DESVANTAGEM: não reutilizável, difícil de manter
+    ============================================================ -->
+
+    <!-- Seletor de classe .titulo aplicado aqui -->
+    <h1 class="titulo">
+        Página
+        <!-- Exemplo de display: inline-block com a classe .badge -->
+        <span class="badge">CSS</span>
+    </h1>
+
+    <!--
+        Este parágrafo usa CSS INLINE: color e background-color definidos
+        diretamente no atributo style="".
+        Inline tem prioridade maior que o seletor de elemento (p { color: red })
+        por isso a cor aqui é azul, não vermelha.
+    -->
+    <p style="color: blue; background-color: yellow;">
+        Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James
+        Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to
+        make dummy text for Letraset's Body Type sheets.
+    </p>
+
+    <!--
+        Este parágrafo usa o seletor de elemento p { color: red } do CSS interno.
+        Sem inline style, a regra geral prevalece.
+    -->
+    <p>
+        Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James
+        Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to
+        make dummy text for Letraset's Body Type sheets.
+    </p>
+
+    <!--
+        Terceiro parágrafo — afetado pela pseudo-classe p:nth-child(3)
+        que adiciona borda esquerda e itálico.
+    -->
+    <p>
+        Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James
+        Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to
+        make dummy text for Letraset's Body Type sheets.
+    </p>
+
+    <!-- ============================================================
+         BOX MODEL — exemplo visual
+    ============================================================ -->
+    <div class="caixa-exemplo">
+        <strong>Box Model:</strong> esta div tem
+        <code>width: 300px</code>,
+        <code>padding: 20px</code>,
+        <code>border: 2px solid</code> e
+        <code>margin: 20px auto</code>.
+        Com <code>box-sizing: border-box</code>, o padding e a borda
+        ficam <em>dentro</em> dos 300px.
+    </div>
+
+    <!-- ============================================================
+         FLEXBOX — exemplo visual
+    ============================================================ -->
+    <div class="flex-container">
+        <div class="flex-item">Item 1</div>
+        <div class="flex-item">Item 2</div>
+        <div class="flex-item">Item 3</div>
+    </div>
+
+    <br />
+
+    <!-- ============================================================
+         FORMULÁRIO
+         - Seletor de atributo [type="text"] → fundo amarelo claro
+         - Combinador descendente form label → negrito
+         - Combinador filho form > input[type="submit"] → verde
+         - Pseudo-classe :hover no submit
+         - Pseudo-classe :focus nos campos de texto
+    ============================================================ -->
+    <h2>Formulário de Contato</h2>
+
+    <form>
+        <label>Nome: </label>
+        <input type="text" placeholder="Digite seu nome" /><br /><br />
+
+        <label>Email: </label>
+        <!--
+            Mesmo usando type="email" aqui, o seletor [type="text"] NÃO
+            se aplica — é seletivo por valor exato do atributo.
+            Para cobrir ambos, poderíamos usar: input[type="text"],
+            input[type="email"] { ... }
+        -->
+        <input type="email" placeholder="Digite seu e-mail" /><br /><br />
+
+        <!-- type="submit" NÃO é afetado por [type="text"] -->
+        <input type="submit" value="Enviar" /><br />
+    </form>
+
+    <!-- ============================================================
+         ID — único por página
+         Seletor: #rodape { ... }
+    ============================================================ -->
+    <div id="rodape">
+        Aula 03 — CSS | Desenvolvimento Web · UNAERP
+    </div>
+
+</body>
+
+</html>

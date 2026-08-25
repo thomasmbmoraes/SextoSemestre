@@ -1,0 +1,162 @@
+/*
+=======================================================================
+  exemplo5.css — CSS Externo
+  Aula 03 · Desenvolvimento Web · UNAERP
+
+  Este arquivo é vinculado ao HTML via:
+    <link rel="stylesheet" href="exemplo5.css" />
+
+  VANTAGENS do CSS externo:
+    - Reutilizável em várias páginas
+    - Cacheado pelo navegador (melhora performance)
+    - Mantém o HTML limpo (separação de responsabilidades)
+=======================================================================
+*/
+
+/*
+-----------------------------------------------------------------------
+  RESET / BASE
+  Remove margens e paddings padrão do navegador para ter um ponto
+  de partida consistente em todos os browsers.
+-----------------------------------------------------------------------
+*/
+body {
+    font-family: Arial, sans-serif;  /* fonte padrão da página */
+    line-height: 1.6;                /* espaçamento confortável entre linhas */
+    margin: 0;
+    padding: 20px 40px;              /* padding: vertical | horizontal */
+    background-color: #fafafa;
+    color: #222;
+}
+
+/*
+-----------------------------------------------------------------------
+  TIPOGRAFIA — propriedades de texto
+  font-size    → tamanho do texto
+  font-weight  → espessura (normal | bold | 100–900)
+  font-style   → normal | italic
+  text-align   → alinhamento horizontal
+  text-decoration → none | underline | line-through
+  line-height  → altura da linha
+  letter-spacing → espaço entre letras
+-----------------------------------------------------------------------
+*/
+h1 {
+    color: #1a1a2e;
+    text-align: left;
+    letter-spacing: 1px;
+}
+
+h2 {
+    color: #333;
+    font-size: 1.3rem;
+    margin-top: 30px;
+}
+
+/*
+-----------------------------------------------------------------------
+  CORES — formas de definir no CSS:
+    rgb(255, 0, 0)          → vermelho, verde, azul (0–255)
+    rgba(255, 0, 0, 0.5)    → RGB + canal alfa (0=transparente, 1=opaco)
+    #FF0000                 → hexadecimal (RR GG BB)
+    hsl(0, 100%, 50%)       → matiz, saturação, luminosidade
+    red / blue / green ...  → nomes pré-definidos
+-----------------------------------------------------------------------
+*/
+
+/* Usando rgba para fundo semi-transparente */
+.caixa-exemplo {
+    border-left: 4px solid rgba(76, 175, 80, 0.8);
+}
+
+/*
+-----------------------------------------------------------------------
+  UNIDADES DE MEDIDA
+  Absolutas: px, cm, mm, in (1in = 96px)
+  Relativas:
+    em   → relativa à fonte do elemento pai
+    rem  → relativa à fonte raiz (<html>)
+    %    → relativa ao valor do pai
+    vw   → 1% da largura da viewport
+    vh   → 1% da altura da viewport
+-----------------------------------------------------------------------
+*/
+code {
+    font-size: 0.9em;              /* em = relativo ao pai */
+    background-color: #eee;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+}
+
+/*
+-----------------------------------------------------------------------
+  POSICIONAMENTO — propriedade position
+  static   → padrão, segue o fluxo normal
+  relative → desloca em relação à posição original (top/right/bottom/left)
+  absolute → posicionado em relação ao pai com position ≠ static
+  fixed    → fixo na viewport (não rola com a página)
+-----------------------------------------------------------------------
+*/
+
+/* Barra de referência fixa no topo — exemplo de position: fixed */
+/* (comentada para não interferir no layout da aula)
+.barra-topo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1a1a2e;
+    color: white;
+    padding: 8px 20px;
+    font-size: 0.85rem;
+    z-index: 999;
+}
+*/
+
+/*
+-----------------------------------------------------------------------
+  BACKGROUNDS E GRADIENTES
+
+  background-color    → cor de fundo sólida
+  background-image    → imagem ou gradiente de fundo
+  background-repeat   → repeat | no-repeat | repeat-x | repeat-y
+  background-size     → cover | contain | 300px 200px
+  background-position → center | top left
+
+  Gradiente linear:
+    background-image: linear-gradient(direção, cor1, cor2);
+  Gradiente radial:
+    background-image: radial-gradient(forma, cor1, cor2);
+-----------------------------------------------------------------------
+*/
+body {
+    /* Gradiente radial sutil no fundo da página */
+    background-image: radial-gradient(ellipse at top left, #f0fff0, #fafafa);
+    background-repeat: no-repeat;
+    background-size: 600px 400px;
+}
+
+/*
+-----------------------------------------------------------------------
+  HERANÇA E CASCATA
+  Regras com maior especificidade sobrepõem as mais genéricas.
+  Ordem de especificidade (maior → menor):
+    1. Inline style (atributo style="")
+    2. ID (#id)
+    3. Classe (.classe) / atributo / pseudo-classe
+    4. Elemento (tag)
+  Em caso de empate, a última regra declarada prevalece.
+-----------------------------------------------------------------------
+*/
+
+/* Estilo de link sem sublinhado — demonstra text-decoration */
+a {
+    color: #4CAF50;
+    text-decoration: none;       /* remove sublinhado padrão */
+}
+
+a:hover {
+    text-decoration: underline;  /* sublinhado só ao passar o mouse */
+    color: #2e7d32;
+}
