@@ -1,0 +1,94 @@
+/* cores do site: amarelo #ffc107 e roxo #4a2c82 */
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+/* navbar */
+.barra {
+    background-color: #4a2c82;
+}
+
+.barra .nav-link:hover {
+    color: #ffc107;
+}
+
+/* hero */
+.hero {
+    background-color: #fff3cd;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.hero h1 {
+    color: #4a2c82;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+}
+
+/* no celular a imagem fica embaixo do texto */
+@media (max-width: 767px) {
+    .hero img {
+        margin-top: 20px;
+    }
+}
+
+/* espaco entre as secoes */
+.secao {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.secao h2 {
+    color: #4a2c82;
+    margin-bottom: 25px;
+}
+
+/* indicadores */
+.indicadores {
+    background-color: #4a2c82;
+    color: #ffffff;
+}
+
+.indicadores h2 {
+    color: #ffc107;
+}
+
+.indicador {
+    border: 1px solid #ffc107;
+    padding: 15px;
+}
+
+.indicador .numero {
+    color: #ffc107;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* rodape */
+.rodape {
+    background-color: #4a2c82;
+    color: #ffffff;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.rodape h5 {
+    color: #ffc107;
+}
+
+.rodape a {
+    color: #ffc107;
+}
+
+/* titulo de cada area de ensino na secao de cursos */
+.area {
+    color: #4a2c82;
+    font-size: 22px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}

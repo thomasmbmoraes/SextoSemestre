@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- viewport faz o site se ajustar no tamanho da tela do celular,
+         sem isso no celular fica tudo minusculo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ThomUNA</title>
+
+    <!-- o Bootstrap traz as classes prontas
+         (navbar, card, btn, row, col, table...) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- esse link carrega a fonte Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <!-- RF01 - Navbar
+             navbar-expand-lg = no computador o menu fica aberto,
+             em tela menor ele vira o botao de 3 risquinhos
+             navbar-dark = texto branco
+             barra = classe no style.css que deixa o fundo roxo -->
+        <nav class="navbar navbar-expand-lg navbar-dark barra">
+            <div class="container">
+                <!-- nome da faculdade, clicando nele volta pro inicio -->
+                <a class="navbar-brand" href="#inicio">ThomUNA</a>
+
+                <!-- botao do menu no celular (o "hamburguer" de 3 risquinhos)
+                     so aparece em tela pequena, porque nao cabe todos os links,
+                     entao os links ficam escondidos e o botao mostra/esconde eles
+                     data-bs-toggle="collapse" faz o menu abrir e fechar
+                     data-bs-target="#menu" indica qual menu abrir/fechar -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- essa div é a parte que fica escondida no celular
+                     o id="menu" tem que ser igual ao data-bs-target do botao -->
+                <div class="collapse navbar-collapse" id="menu">
+                    <!-- lista de links, ms-auto empurra eles pra direita
+                         os links com # levam pra secao que tem aquele id na mesma pagina -->
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#inicio">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#cursos">Cursos</a>
+                        </li>
+
+                        <!-- dropdown é o menu suspenso: clicando em "Áreas de Ensino"
+                             abre uma listinha embaixo com as areas, e cada area
+                             leva pro grupo de cursos dela (#exatas, #humanas, #biologicas)
+                             data-bs-toggle="dropdown" é o que faz ela abrir e fechar
+                             dropdown-menu é a lista e dropdown-item cada opcao -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Áreas de Ensino</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#exatas">Ciências Exatas</a></li>
+                                <li><a class="dropdown-item" href="#humanas">Ciências Humanas</a></li>
+                                <li><a class="dropdown-item" href="#biologicas">Ciências Biológicas e da Saúde</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#noticias">Notícias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contato">Contato</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- RF02 - Hero
+             a "capa" do site
+             id="inicio" é pra onde o link "Início" da navbar leva -->
+        <section id="inicio" class="hero">
+            <!-- container centraliza o conteudo e deixa um espaco nos lados -->
+            <div class="container">
+                <!-- row é uma linha do grid do bootstrap, que é dividido em 12 colunas -->
+                <div class="row">
+
+                    <!-- texto de boas-vindas, apresentando a faculdade
+                         col-md-6 = ocupa metade da linha (6 de 12) do tablet pra cima,
+                         no celular ocupa a linha toda e a imagem vai pra baixo -->
+                    <div class="col-md-6">
+                        <h1>Bem-vindo à ThomUNA</h1>
+                        <p>
+                            A ThomUNA é uma instituição de ensino que oferece cursos de graduação
+                            e pós-graduação nas áreas de exatas, humanas, biológicas e saúde.
+                        </p>
+                        <!-- botao de chamada pra acao, leva pra secao de cursos
+                             btn-warning é o botao amarelo do bootstrap -->
+                        <a href="#cursos" class="btn btn-warning">Ver cursos</a>
+                    </div>
+
+                    <!-- imagem da faculdade
+                         img-fluid faz a imagem diminuir junto com a tela e nao passar do tamanho -->
+                    <div class="col-md-6">
+                        <img src="img/faculdade.png" class="img-fluid" alt="Prédio da faculdade">
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- RF03 - Cursos
+             cada curso é um card (caixinha com imagem, nome, descricao e botao) -->
+        <section id="cursos" class="secao">
+            <div class="container">
+                <h2>Nossos Cursos</h2>
+
+                <!-- os cursos estao separados por area de ensino
+                     cada area tem um id, que é pra onde o link do dropdown
+                     "Áreas de Ensino" da navbar leva -->
+
+                <!-- Ciências Exatas -->
+                <h3 id="exatas" class="area">Ciências Exatas</h3>
+                <!-- 1 coluna no celular, 2 no tablet e 3 no computador -->
+                <div class="row">
+
+                    <!-- col-12 col-md-6 col-lg-4 = quanto o card ocupa em cada tamanho de tela
+                         h-100 deixa todos os cards da mesma altura
+                         mb-4 da um espaco embaixo de cada card -->
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card h-100">
+                            <img src="img/arquitetura.svg" class="card-img-top" alt="Arquitetura e Urbanismo">
+                            <div class="card-body">
+                                <h5 class="card-title">Arquitetura e Urbanismo</h5>
+                                <p class="card-text">Projeto de edificações, espaços urbanos e paisagismo.</p>
+                                <!-- esse botao abre o modal com os detalhes do curso
+                                     o data-bs-target tem que ser igual ao id do modal la embaixo -->
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalArquitetura">Ver detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card h-100">
+                            <img src="img/engcomp.svg" class="card-img-top" alt="Engenharia da Computação">
+                            <div class="card-body">
+                                <h5 class="card-title">Engenharia da Computação</h5>
+                                <p class="card-text">Une hardware e software no desenvolvimento de sistemas computacionais.</p>
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEngcomp">Ver detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card h-100">
+                            <img src="img/matematica.svg" class="card-img-top" alt="Matemática Aplicada a Negócios">
+                            <div class="card-body">
+                                <h5 class="card-title">Matemática Aplicada a Negócios</h5>
+                                <p class="card-text">Matemática e estatística aplicadas a finanças e ao mercado.</p>
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalMatematica">Ver detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Ciências Humanas -->
+                <h3 id="humanas" class="area">Ciências Humanas</h3>
+                <div class="row">
+
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card h-100">
+                            <img src="img/direito.svg" class="card-img-top" alt="Direito">
+                            <div class="card-body">
+                                <h5 class="card-title">Direito</h5>
+                                <p class="card-text">Formação jurídica para atuar na advocacia e em concursos públicos.</p>
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalDireito">Ver detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card h-100">
+                            <img src="img/psicologia.svg" class="card-img-top" alt="Psicologia">
+                            <div class="card-body">
+                                <h5 class="card-title">Psicologia</h5>
+                                <p class="card-text">Estudo do comportamento humano e atendimento psicológico.</p>
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalPsicologia">Ver detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Ciências Biológicas e da Saúde -->
+                <h3 id="biologicas" class="area">Ciências Biológicas e da Saúde</h3>
+                <div class="row">
+
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card h-100">
+                            <img src="img/biologia.svg" class="card-img-top" alt="Biologia">
+                            <div class="card-body">
+                                <h5 class="card-title">Biologia</h5>
+                                <p class="card-text">Estudo dos seres vivos, da natureza e do meio ambiente.</p>
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalBiologia">Ver detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card h-100">
+                            <img src="img/edfisica.svg" class="card-img-top" alt="Educação Física">
+                            <div class="card-body">
+                                <h5 class="card-title">Educação Física</h5>
+                                <p class="card-text">Atividade física, esporte e saúde para todas as idades.</p>
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEdfisica">Ver detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- RF04 - Indicadores
+             numeros da faculdade, organizados com o grid do bootstrap -->
+        <section class="secao indicadores">
+            <div class="container">
+                <h2>A ThomUNA em números</h2>
+
+                <!-- 2 por linha no celular (col-6), 4 por linha no tablet/computador (col-md-3)
+                     text-center centraliza o texto -->
+                <div class="row text-center">
+                    <div class="col-6 col-md-3 mb-3">
+                        <div class="indicador">
+                            <p class="numero">13.000</p>
+                            <p>Alunos formados</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 mb-3">
+                        <div class="indicador">
+                            <p class="numero">7</p>
+                            <p>Cursos oferecidos</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 mb-3">
+                        <div class="indicador">
+                            <p class="numero">70</p>
+                            <p>Professores</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 mb-3">
+                        <div class="indicador">
+                            <p class="numero">93%</p>
+                            <p>Satisfação dos alunos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RF05 - Tabela com as informacoes dos cursos -->
+        <section class="secao">
+            <div class="container">
+                <h2>Consulta de Cursos</h2>
+
+                <!-- table-responsive deixa a tabela rolar pro lado no celular -->
+                <div class="table-responsive">
+                    <!-- table-striped deixa as linhas zebradas e table-bordered coloca borda
+                         thead é o cabecalho (amarelo com table-warning) e tbody sao os dados
+                         tr = linha, th = celula do cabecalho, td = celula normal -->
+                    <table class="table table-striped table-bordered">
+                        <thead class="table-warning">
+                            <tr>
+                                <th>Curso</th>
+                                <th>Modalidade</th>
+                                <th>Carga horária</th>
+                                <th>Investimento</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Arquitetura e Urbanismo</td>
+                                <td>Presencial</td>
+                                <td>3.600 h</td>
+                                <td>R$ 1.090,00/mês</td>
+                            </tr>
+                            <tr>
+                                <td>Biologia</td>
+                                <td>Presencial</td>
+                                <td>3.200 h</td>
+                                <td>R$ 750,00/mês</td>
+                            </tr>
+                            <tr>
+                                <td>Direito</td>
+                                <td>Presencial</td>
+                                <td>3.700 h</td>
+                                <td>R$ 1.200,00/mês</td>
+                            </tr>
+                            <tr>
+                                <td>Educação Física</td>
+                                <td>Híbrido</td>
+                                <td>3.200 h</td>
+                                <td>R$ 520,00/mês</td>
+                            </tr>
+                            <tr>
+                                <td>Engenharia da Computação</td>
+                                <td>Presencial</td>
+                                <td>3.600 h</td>
+                                <td>R$ 1.050,00/mês</td>
+                            </tr>
+                            <tr>
+                                <td>Matemática Aplicada a Negócios</td>
+                                <td>EAD</td>
+                                <td>3.000 h</td>
+                                <td>R$ 350,00/mês</td>
+                            </tr>
+                            <tr>
+                                <td>Psicologia</td>
+                                <td>Presencial</td>
+                                <td>4.000 h</td>
+                                <td>R$ 980,00/mês</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notícias
+             bg-light deixa o fundo cinza clarinho -->
+        <section id="noticias" class="secao bg-light">
+            <div class="container">
+                <h2>Notícias</h2>
+
+                <div class="row">
+                    <div class="col-12 col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <!-- text-muted deixa a data em cinza -->
+                                <p class="text-muted">15/09/2026</p>
+                                <h5 class="card-title">Vestibular 2027 com inscrições abertas</h5>
+                                <p class="card-text">As inscrições para o vestibular vão até o dia 30 de novembro.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <p class="text-muted">02/09/2026</p>
+                                <h5 class="card-title">Semana da Tecnologia</h5>
+                                <p class="card-text">Palestras e minicursos gratuitos para alunos de todos os cursos.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <p class="text-muted">20/08/2026</p>
+                                <h5 class="card-title">Novo laboratório de Biologia</h5>
+                                <p class="card-text">O novo laboratório já está disponível para as aulas práticas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RF06 - Formulário de contato -->
+        <section id="contato" class="secao">
+            <div class="container">
+                <h2>Contato</h2>
+
+                <div class="row">
+                    <div class="col-12 col-lg-8">
+                        <!-- o formulario nao envia de verdade pra lugar nenhum -->
+                        <form action="#" method="post">
+                            <div class="row">
+                                <!-- o "for" do label liga com o "id" do campo,
+                                     clicando no texto ja seleciona o campo
+                                     required = campo obrigatorio, nao deixa enviar vazio -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="nome" class="form-label">Nome</label>
+                                    <input type="text" class="form-control" id="nome" name="nome" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <!-- type="email" o navegador ja confere se tem @ -->
+                                    <label for="email" class="form-label">E-mail</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <!-- type="tel" no celular abre o teclado de numeros
+                                         placeholder é o texto de exemplo que some quando digita -->
+                                    <label for="telefone" class="form-label">Telefone</label>
+                                    <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(16) 99999-9999">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <!-- select é a caixinha pra escolher uma opcao da lista -->
+                                    <label for="curso" class="form-label">Curso de interesse</label>
+                                    <select class="form-select" id="curso" name="curso">
+                                        <option value="">Selecione...</option>
+                                        <option>Arquitetura e Urbanismo</option>
+                                        <option>Biologia</option>
+                                        <option>Direito</option>
+                                        <option>Educação Física</option>
+                                        <option>Engenharia da Computação</option>
+                                        <option>Matemática Aplicada a Negócios</option>
+                                        <option>Psicologia</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <!-- textarea é o campo de texto grande, rows="4" é a altura dele -->
+                                <label for="mensagem" class="form-label">Mensagem</label>
+                                <textarea class="form-control" id="mensagem" name="mensagem" rows="4"></textarea>
+                            </div>
+
+                            <!-- type="submit" é o botao que envia o formulario -->
+                            <button type="submit" class="btn btn-warning">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RF07 - Modais com os detalhes dos cursos
+         modal é a janelinha que abre por cima do site quando clica em "Ver detalhes"
+         fica fora do main porque ele fica escondido e so aparece quando é chamado -->
+
+    <!-- modal Arquitetura e Urbanismo
+         id tem que ser igual ao data-bs-target do botao do card
+         fade = animacao de aparecer suave -->
+    <div class="modal fade" id="modalArquitetura" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- cabecalho: nome do curso e o X pra fechar
+                     data-bs-dismiss="modal" é o que fecha o modal -->
+                <div class="modal-header">
+                    <h5 class="modal-title">Arquitetura e Urbanismo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <!-- corpo: as informacoes que o RF07 pede -->
+                <div class="modal-body">
+                    <p><strong>Objetivos:</strong> formar arquitetos para projetar edificações e planejar cidades.</p>
+                    <p><strong>Carga horária:</strong> 3.600 horas</p>
+                    <p><strong>Público-alvo:</strong> quem gosta de desenho, arte e planejamento de espaços.</p>
+                    <p><strong>Descrição:</strong> curso de 5 anos com disciplinas de desenho técnico, projeto arquitetônico e urbanismo.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal Biologia -->
+    <div class="modal fade" id="modalBiologia" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Biologia</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Objetivos:</strong> formar biólogos para atuar em pesquisa, meio ambiente e laboratórios.</p>
+                    <p><strong>Carga horária:</strong> 3.200 horas</p>
+                    <p><strong>Público-alvo:</strong> quem se interessa por natureza, genética e meio ambiente.</p>
+                    <p><strong>Descrição:</strong> curso de 4 anos com aulas práticas em laboratório e saídas de campo.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal Direito -->
+    <div class="modal fade" id="modalDireito" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Direito</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Objetivos:</strong> formar profissionais para atuar na área jurídica pública e privada.</p>
+                    <p><strong>Carga horária:</strong> 3.700 horas</p>
+                    <p><strong>Público-alvo:</strong> quem gosta de leitura, argumentação e quer seguir carreira jurídica.</p>
+                    <p><strong>Descrição:</strong> curso de 5 anos com núcleo de prática jurídica e preparação para o exame da OAB.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal Educação Física -->
+    <div class="modal fade" id="modalEdfisica" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Educação Física</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Objetivos:</strong> formar profissionais para atuar em academias, clubes e escolas.</p>
+                    <p><strong>Carga horária:</strong> 3.200 horas</p>
+                    <p><strong>Público-alvo:</strong> quem gosta de esporte e de qualidade de vida.</p>
+                    <p><strong>Descrição:</strong> curso de 4 anos com aulas práticas no ginásio e na piscina da ThomUNA.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal Engenharia da Computação -->
+    <div class="modal fade" id="modalEngcomp" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Engenharia da Computação</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Objetivos:</strong> formar engenheiros para projetar sistemas que unem hardware e software.</p>
+                    <p><strong>Carga horária:</strong> 3.600 horas</p>
+                    <p><strong>Público-alvo:</strong> quem gosta de programação, eletrônica e matemática.</p>
+                    <p><strong>Descrição:</strong> curso de 5 anos com disciplinas de programação, circuitos digitais, sistemas embarcados e redes.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal Matemática Aplicada a Negócios -->
+    <div class="modal fade" id="modalMatematica" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Matemática Aplicada a Negócios</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Objetivos:</strong> formar profissionais que usam matemática e dados para tomar decisões nas empresas.</p>
+                    <p><strong>Carga horária:</strong> 3.000 horas</p>
+                    <p><strong>Público-alvo:</strong> quem gosta de números e quer trabalhar no mercado financeiro.</p>
+                    <p><strong>Descrição:</strong> curso de 4 anos com disciplinas de estatística, matemática financeira e análise de dados.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal Psicologia -->
+    <div class="modal fade" id="modalPsicologia" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Psicologia</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Objetivos:</strong> formar psicólogos para atuar em clínicas, escolas e empresas.</p>
+                    <p><strong>Carga horária:</strong> 4.000 horas</p>
+                    <p><strong>Público-alvo:</strong> quem tem interesse em entender o comportamento humano.</p>
+                    <p><strong>Descrição:</strong> curso de 5 anos com estágio supervisionado na clínica-escola da ThomUNA.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RF08 - Rodapé
+         footer é a parte de baixo do site
+         dividi em 3 colunas (col-md-4), no celular fica uma embaixo da outra -->
+    <footer class="rodape">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 mb-3">
+                    <h5>ThomUNA</h5>
+                    <p>Rua da ThomUNA, 13 - Centro<br>Ribeirão Preto - SP</p>
+                </div>
+                <div class="col-12 col-md-4 mb-3">
+                    <h5>Contato</h5>
+                    <p>Telefone: (16) 99913-1313<br>E-mail: contato@thomuna.edu.br</p>
+                </div>
+                <div class="col-12 col-md-4 mb-3">
+                    <h5>Redes sociais</h5>
+                    <!-- target="_blank" abre a rede social em outra aba -->
+                    <p>
+                        <a href="https://www.instagram.com" target="_blank">Instagram</a><br>
+                        <a href="https://www.facebook.com" target="_blank">Facebook</a><br>
+                        <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <!-- direitos autorais, o &copy; vira o simbolo © -->
+            <p class="text-center mb-0">&copy; 2026 ThomUNA - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JS do bootstrap
+         precisa dele pro menu do celular, o dropdown e os modais funcionarem
+         fica no final do body pra pagina carregar primeiro -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
